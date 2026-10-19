@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botón de arrepentimiento · Arquito</title>
+<link rel="icon" href="img/arquito-wave.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="img/arquito-wave.svg" alt="">Arquito</a><nav><a class="btn sm" href="index.html">Inicio</a></nav></div></header>
+<main class="wrap"><article class="doc">
+<h1>Botón de arrepentimiento</h1>
+<p>Si compraste Arquito completo hace 10 días corridos o menos, puedes revocar la compra sin dar explicaciones (Ley 24.240, art. 34, y Resolución 424/2020). Te devolvemos el total y se desactiva el código.</p>
+<div class="box">
+<form id="f">
+<label>Tu nombre <input name="n" required maxlength="80"></label>
+<label>El correo con el que pagaste <input name="e" type="email" required maxlength="120"></label>
+<label>Fecha de la compra <input name="d" type="date" required></label>
+<label>Código de activación (si lo tienes) <input name="c" maxlength="24" placeholder="ARQ-XXXX-XXXX-XXXX"></label>
+<button class="btn" type="submit">Revocar mi compra</button>
+</form>
+<p class="muted" style="margin-bottom:0">Al tocar el botón se abre tu correo con el pedido listo para enviar. Te respondemos dentro de las 24 horas hábiles con un número de trámite.</p>
+</div>
+<script>
+document.getElementById('f').addEventListener('submit', e => {
+  e.preventDefault(); const v = Object.fromEntries(new FormData(e.target));
+  const body = `Quiero revocar mi compra de Arquito completo (botón de arrepentimiento).\n\nNombre: ${v.n}\nCorreo de pago: ${v.e}\nFecha de compra: ${v.d}\nCódigo: ${v.c || '-'}`;
+  location.href = 'mailto:?subject=' + encodeURIComponent('Arrepentimiento de compra · Arquito') + '&body=' + encodeURIComponent(body);
+});
+</script>
+</article></main>
+<footer><div class="wrap"><span>© Arquito · Hecho con 🎻 en Argentina</span><nav><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="eliminar-cuenta.html">Eliminar cuenta</a><a class="arrep" href="arrepentimiento.html">Botón de arrepentimiento</a></nav></div></footer>
+</body>
+</html>
