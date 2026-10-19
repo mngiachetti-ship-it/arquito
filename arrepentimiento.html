@@ -26,7 +26,7 @@
 document.getElementById('f').addEventListener('submit', e => {
   e.preventDefault(); const v = Object.fromEntries(new FormData(e.target));
   const body = `Quiero revocar mi compra de Arquito completo (botón de arrepentimiento).\n\nNombre: ${v.n}\nCorreo de pago: ${v.e}\nFecha de compra: ${v.d}\nCódigo: ${v.c || '-'}`;
-  location.href = 'mailto:?subject=' + encodeURIComponent('Arrepentimiento de compra · Arquito') + '&body=' + encodeURIComponent(body);
+  location.href = 'mailto:arquito.app@gmail.com?subject=' + encodeURIComponent('Arrepentimiento de compra · Arquito') + '&body=' + encodeURIComponent(body);
 });
 </script>
 </article></main>
